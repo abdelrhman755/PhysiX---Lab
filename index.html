@@ -8,29 +8,58 @@
 </head>
 
 <body>
+    <div class="space">
+        <div class="gowing1"></div>
+        <div class="glowing2"></div>
+    </div>
+    <div class="stars-l"></div>
 
-    <header>
+    <nav>
+        <h2>PhysiX-Lab</h2>
+        <div>
+            <a href="#explore" onclick="scrollToSection('explore'); return false;">Explore Tools</a>
+            <a href="#about" onclick="scrollToSection('about'); return false;">About</a>
+        </div>
+    </nav>
+
+    <header class="hero">
         <h1>⚡ PhysiX Lab</h1>
-        <p>Interactive Physics Calculators & Simulations</p>
+        <p class="sub">Explore Physics Of The Universe Through Interactive Simulations & Real-Time Calculations</p>
     </header>
 
     <main>
 
         <div class="card">
             <h2>Calculators</h2>
-            <button>Force</button>
-            <button>Velocity</button>
-            <button>Momentum</button>
+            <button>Velocity Calculator</button>
+            <button>Force Calculator</button>
+            <button>Momentum Calculator</button>
+            <button>Kinetic Energy</button>
+            <button>Potential Energy</button>
+            <button>Ohm's Law</button>
         </div>
 
         <div class="card">
             <h2>Simulations</h2>
             <button>Projectile Motion</button>
-            <button>Pendulum</button>
+            <button>Pendulum Simulator</button>
+            <button>Spring Oscillation</button>
             <button>Free Fall</button>
+            <button>Wave Simulation</button>
         </div>
 
     </main>
-    <div class="stars"></div>
+    <section id="about" class="about-sec">
+        <div class="profile-container">
+            <h2>About the Developer</h2>
+            <div class="profile-pic" style="background-image: url('images/me.jpeg');"></div>
+            <h3>Abdelrahman Mohamed Abdelrazek</h3>
+            <p>I am the developer of this website</p>
+        </div>
+    </section>
+    <footer>
+        <p class="future-note">In the future, there will be more calculators and simulations!</p>
+        <p class="copyright">&copy; 2026 Abdlerahman | PhysiX Lab. All rights reserved.</p>
+    </footer>
 </body>
 </html>
