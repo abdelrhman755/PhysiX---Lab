@@ -15,19 +15,21 @@
     <div class="stars-l"></div>
 
     <nav>
+        <div class="logo" style="background-image: url('images/physics.png');"></div>
         <h2>PhysiX-Lab</h2>
-        <div>
+        <div class="nnn">
+            <a href="#hero" onclick="scrollToSection('hero'); return false;">Home</a>
             <a href="#explore" onclick="scrollToSection('explore'); return false;">Explore Tools</a>
             <a href="#about" onclick="scrollToSection('about'); return false;">About</a>
         </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero" id="hero">
         <h1>⚡ PhysiX Lab</h1>
         <p class="sub">Explore Physics Of The Universe Through Interactive Simulations & Real-Time Calculations</p>
     </header>
 
-    <main>
+    <main id="explore">
 
         <div class="card">
             <h2>Calculators</h2>
@@ -52,7 +54,7 @@
     <section id="about" class="about-sec">
         <div class="profile-container">
             <h2>About the Developer</h2>
-            <div class="profile-pic" style="background-image: url('images\me.jpeg');"></div>
+            <div class="profile-pic" style="background-image: url('images/me.jpeg');"></div>
             <h3>Abdelrahman Mohamed Abdelrazek</h3>
             <p>I am the developer of this website</p>
         </div>
