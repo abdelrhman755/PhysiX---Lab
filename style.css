@@ -282,3 +282,136 @@ footer {
     font-family: arial;
     font-weight:bold;
 }
+
+
+/*the scrolling bar*/
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#020204;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--n-blue);
+    border-radius:20px;
+    box-shadow:0 0 10px var(--n-blue);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--n-red);
+    box-shadow:0 0 15px var(--n-red);
+}
+
+/*atoms & formula*/
+
+.atom{
+    position:absolute;
+    width:70px;
+    height:70px;
+    opacity:.15;
+    animation:floating 12s ease-in-out infinite alternate;
+}
+
+.nucleus{
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:#ff4d4d;
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 10px red;
+}
+
+.orbit{
+    position:absolute;
+    inset:0;
+    border:2px solid #4fc3ff;
+    border-radius:50%;
+}
+
+.orbit1{
+    transform:rotate(0deg);
+}
+
+.orbit2{
+    transform:rotate(60deg);
+}
+
+.orbit3{
+    transform:rotate(120deg);
+}
+
+.orbit::after{
+    content:"";
+    position:absolute;
+    width:7px;
+    height:7px;
+    background:#4fc3ff;
+    border-radius:50%;
+    top:-3px;
+    left:50%;
+    transform:translateX(-50%);
+    box-shadow:0 0 10px #4fc3ff;
+
+    animation:electron 4s linear infinite;
+}
+
+@keyframes electron{
+    from{transform:rotate(0deg) translateY(35px);}
+    to{transform:rotate(360deg) translateY(35px);}
+}
+
+@keyframes floating{
+    from{transform:translateY(0px);}
+    to{transform:translateY(-25px);}
+}
+
+.a1{
+    top:15%;
+    left:10%;
+}
+
+.a2{
+    top:55%;
+    right:10%;
+}
+
+.a3{
+    bottom: 15%;
+    left:20%;
+}
+
+
+
+.formula {
+    position:absolute;
+    color:#4fc4ffa3;
+    font-size:32px;
+    font-weight:bold;
+    font-family:serif;
+    animation:floating 18s ease-in-out infinite alternate;
+}
+
+.f1{
+    top:25%;
+    right:16%;
+}
+
+.f2{
+    bottom:20%;
+    right:30%;
+}
+
+.f3{
+    top:70%;
+    left:10%;
+}
+
+.f4{
+    top:12%;
+    left:55%;
+}
