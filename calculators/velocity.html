@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Calculator | PhysiX Lab</title>
+    <link rel="stylesheet" href="../css/calculator.css">
+</head>
+<body>
+    <div class="space">
+        <div class="glowing orb-1"></div>
+        <div class="glowing orb-2"></div>
+    </div>
+    <div class="stars-l"></div>
+    <nav>
+        <div class="logo" style="background-image:url('../images/physics.png');"></div>
+        <h2>PhysiX-Lab</h2>
+        <div class="links">
+            <a href="../index.html">Home</a>
+        </div>
+    </nav>
+    <section class="calculator">
+        <div class="card">
+            <h1>Veclocity Calculator</h1>
+            <p class="formula">Formula: <span>V = d / t</span></p>
+            <input id="distance" type="number" placeholder="Distace">
+            <input id="time" type="number" placeholder="Time">
+            <button onclick="calulateVelocity()">Caclculate</button>
+            <div class="result">Velocity =<span id="answer">--</span>m/s</div>
+            <script src="../js/velocity.js"></script>
+        </div>
+    </section>
+</body>
+
+</html>
