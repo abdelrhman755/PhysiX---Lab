@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velocity Calculator | PhysiX Lab</title>
     <link rel="stylesheet" href="../css/calculator.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="space">
@@ -20,12 +21,12 @@
         </div>
     </nav>
     <section class="calculator">
-        <div class="card">
+        <div class="cal-card">
             <h1>Veclocity Calculator</h1>
-            <p class="formula">Formula: <span>V = d / t</span></p>
-            <input id="distance" type="number" placeholder="Distace">
-            <input id="time" type="number" placeholder="Time">
-            <button onclick="calulateVelocity()">Caclculate</button>
+            <div class="cal-formula">Formula: <span>V = d / t</span></div>
+            <input id="distance" type="number" placeholder="Distace (m)">
+            <input id="time" type="number" placeholder="Time (s)">
+            <button onclick="calulateVelocity()" class="cal-button">Caclculate</button>
             <div class="result">Velocity =<span id="answer">--</span>m/s</div>
             <script src="../js/velocity.js"></script>
         </div>

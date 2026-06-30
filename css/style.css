@@ -207,7 +207,7 @@ main{
     background:rgba(255,255,255,0.08);
 }
 
-button{
+.btn{
     display:block;
     width:100%;
     margin:15px 0;
@@ -222,12 +222,12 @@ button{
     transition: transform 0.1s ease-in-out, background-color 0.3s, border-color 0.3s;
 }
 
-button:hover{
+.btn:hover{
     transform:scale(1.05);
     box-shadow:0 0 25px rgba(59,130,246,0.8);
 }
 
-button:active{
+.btn:active{
     transform: scale(0.95); 
 }
 
