@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Calculator | PhysiX Lab</title>
+    <link rel="stylesheet" href="../css/calculator.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="space">
+        <div class="glowing orb-1"></div>
+        <div class="glowing orb-2"></div>
+    </div>
+    <div class="stars-l"></div>
+    <nav>
+        <div class="logo" style="background-image:url('../images/physics.png');"></div>
+        <h2>PhysiX-Lab</h2>
+        <div class="links">
+            <a href="../index.html">Home</a>
+        </div>
+    </nav>
+    <section class="calculator">
+        <div class="cal-card">
+            <h1>Ohm's Calculator</h1>
+            <div class="cal-formula">Formula: <span>V = I * R</span></div>
+            <input id="intensity" type="number" placeholder="Intensity (A)">
+            <input id="resistance" type="number" placeholder="Resistance (Ω)">
+            <button class="cal-button" id="calculate">Calculate</button>
+            <div class="result" id="result"></div>
+        </div>
+    </section>
+    <footer>
+        <p class="future-note">In the future, there will be more calculators and simulations!</p>
+        <p class="copyright">&copy; 2026 Abdlerahman | PhysiX Lab. All rights reserved.</p>
+    </footer>
+    <script src="../js/ohm.js"></script>
+</body>
+</html>
