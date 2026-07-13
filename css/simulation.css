@@ -1,0 +1,96 @@
+.simulation{
+    min-height:calc(100vh - 80px);
+    margin-top:80px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.sim-card{
+    width:950px;
+    padding:35px;
+    border-radius:18px;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 35px rgba(11,61, 145,0.35);
+}
+
+.sim-card h1 {
+    text-align:center;
+    color:#3abff8;
+    margin-bottom:20px;
+}
+
+.inputs{
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.inputs input{
+    flex:1;
+}
+
+.inputs button{
+    width:170px;
+}
+
+canvas{
+    width: 100%;
+    background:#0d1117;
+    border-radius:12px;
+    border:2px solid rgba(58,191,248,0.25);
+}
+
+input{
+    width: 90%;
+    height:55px;
+    margin:20px 0;
+    padding:0 20px;
+    background:#181818;
+    color:white;
+    border:2px solid rgba(58,191,248,0.3);
+    border-radius:12px;
+    font-size:20px;
+}
+
+button{
+    width:260px;
+    height:55px;
+    margin:20px auto 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,.05);
+    color:white;
+    border:1px solid rgba(58,191,248,.35);
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+    margin:0;
+}
+
+.links{
+    margin-left:auto;
+}
+
+button:hover{
+    background:var(--n-red);
+    border-color:var(--n-red);
+    box-shadow:0 0 20px rgba(252,61,33,.6);
+    transform:translateY(-2px);
+}
+
+
+input:focus{
+    background:rgba(255,255,255,0.06);
+    border-color:#3abff8;
+    box-shadow: 0 0 0 3px rgba(58,191,248,0.12), 0 0 20px rgba(58,191,248,0.35);
+}
