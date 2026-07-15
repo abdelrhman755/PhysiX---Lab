@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendulum Simulation | PhysiX Lab</title>
+    <link rel="stylesheet" href="../css/simulation.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="space">
+        <div class="glowing orb-1"></div>
+        <div class="glowing orb-2"></div>
+    </div>
+    <div class="stars-l"></div>
+    <nav>
+        <div class="logo" style="background-image:url('../images/physics.png');"></div>
+        <h2>PhysiX-Lab</h2>
+        <div class="links">
+            <a href="../index.html">Home</a>
+        </div>
+    </nav>
+    <section class = "simulation">
+        <div class="sim-card">
+            <h1>Pendulum Simulation</h1>
+            <div class="inputs">
+                <input id="length" type="number" placeholder="Length (m)">
+                <input id="angle" type="number" placeholder="Angle (°)">
+                <button id="start">Start Simulation</button>
+            </div>
+            <canvas id="canvas" width="900" height="450"></canvas>
+            <div class="result">
+                Period = <span id="period">--</span> s
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p class="future-note">In the future, there will be more calculators and simulations!</p>
+        <p class="copyright">&copy; 2026 Abdlerahman | PhysiX Lab. All rights reserved.</p>
+    </footer>
+    <script src="../js/pendulum.js"></script>
+</body>
+</html>

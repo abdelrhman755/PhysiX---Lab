@@ -15,8 +15,8 @@ launchBtn.addEventListener("click", launch);
 
 // launce function
 function launch() {
-    if (animationId) {
-        cancelAnimationFrame(animationId);
+    if (animation) {
+        cancelAnimationFrame(animation);
     }
 
     // detect if the user put any values in the input fields
@@ -27,7 +27,7 @@ function launch() {
 
     //convert the values from text to numbers to make it workable
     const speed = Number(speedInput.value);
-    const angle = Number(angleInput.value);
+    const angle = Number(angleInput.value) * Math.PI / 180;
 
 
     // speed at x and y angles
@@ -44,7 +44,7 @@ function launch() {
 
     function animate(){
         //clear the previous frame before start
-        ctx.clearRact(0,0,canvas.clientWidth,canvas.height);
+        ctx.clearRect(0,0,canvas.width,canvas.height);
 
         // draw the background and ground grid
         drawGrid();
@@ -62,7 +62,7 @@ function launch() {
 
         //continue the animation while the projectile is above the ground
         if (y <= groundy && x <= canvas.width) {
-            animationId = requestAnimationFrame(animate);
+            animation = requestAnimationFrame(animate);
         }
     }
 }
@@ -72,7 +72,7 @@ function launch() {
 function drawBall(x,y) {
     // making a new shape
     ctx.beginPath();
-    // making a circle at teh projectile possition
+    // making a circle at the projectile possition
     ctx.arc(x,y,8,0,Math.PI*2);
     ctx.fillStyle= "#3abff8"; // color of the projectile
     ctx.shadowBlur = 15;
@@ -90,7 +90,7 @@ function drawGround() {
     // draw it across the whole canvas
     ctx.lineTo(canvas.width,groundy);
     //style
-    ctx.storkeStyle="#999";
+    ctx.strokeStyle="#999";
     ctx.lineWidth=3;
     ctx.stroke();
 }
@@ -99,7 +99,7 @@ function drawGround() {
 // draw a grid in the background to make the projectile easier to follow
 function drawGrid(){
     // its style
-    ctx.storkeStyle= "rgba(255,255,255,0.8)";
+    ctx.strokeStyle= "rgba(255,255,255,0.08)";
     ctx.lineWidth =1;
 
     // vertical grid lines
