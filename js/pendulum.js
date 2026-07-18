@@ -138,3 +138,5 @@ function drawGrid () {
         ctx.stroke();
     }
 }
+
+// الحمد لله يعني بحب الهاااك كلاب
