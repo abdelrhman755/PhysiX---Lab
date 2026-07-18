@@ -28,7 +28,7 @@ function startFall() {
 
     //check if the input fields are empty
     if (heightInput.value === "") {
-        result.textContent = "Please enter a value for height"
+        result.textContent = "Please enter a value for height";
         return;
     }
 
@@ -37,7 +37,7 @@ function startFall() {
 
     // make sure that height value is positive
     if (height < 0) {
-        result.textContent = "Height can't be negative"
+        result.textContent = "Height can't be negative";
         return;
     }
 
@@ -55,7 +55,7 @@ function startFall() {
 
     const starty = groundy - height * scale;
 
-    let t = 0
+    let t = 0;
 
     animate();
 
@@ -87,9 +87,60 @@ function startFall() {
             animation = requestAnimationFrame(animate);
         } else {
             //display the total falling time after teh animation ends
-            result.textContent = `Fall Time = ${time.toFixed(2)} s`
+            result.textContent = time.toFixed(2)
         }
     }
 }
 
 
+// the function that will draw the falling ball
+function drawBall (x,y) {
+    // it will start to make a new shape if there is a previous one
+    ctx.beginPath();
+    // draw a cricle at its current position
+    ctx.arc(x, y, 10, 0, Math.PI * 2);
+
+    //effects
+    ctx.fillStyle = "#3abff8";
+    ctx.shadowBlur = 15;
+    ctx.shadowColor = "#3abff8";
+    ctx.fill();
+    ctx.shadowBlur = 0;
+}
+
+
+// the function that will draw the ground line
+function drawGround(){
+    ctx.beginPath();
+    ctx.moveTo(0, groundy); // ground starts from the left edge
+    ctx.lineTo(canvas.width, groundy); // draw the ground for all the canvas
+    //its style
+    ctx.strokeStyle = "#999";
+    ctx.lineWidth = 3;
+    ctx.stroke(); // render it
+}
+
+
+// function to draw a grid in the background
+function drawGrid(){
+    //style
+    ctx.strokeStyle = "rgba(255,255,255,0.08)";
+    ctx.lineWidth = 1;
+
+    // draw all vertical grid lines
+    for (let x = 0; x<= canvas.width; x += 40) {
+        ctx.beginPath();
+        ctx.moveTo(x,0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+    }
+
+
+    //draw all horzinotal grid lines
+    for (let y = 0; y<= canvas.height; y += 40) {
+        ctx.beginPath();
+        ctx.moveTo(0,y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+    }
+}
