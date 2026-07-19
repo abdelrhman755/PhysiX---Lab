@@ -60,4 +60,64 @@ function startSimulation (){
 
     // printing the period result to the user on the screen
     result.textContent = period.toFixed(2);
+
+    const scale = 60; //the scale
+
+    let t = 0;
+
+    animate();
+
+
+
+    // the animate function that will be called 
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // clear the previous frame before drawing
+        drawGrid(); //calling the function that will draw the grid
+        drawCeiling();// the same for ceiling
+
+
+        // calculate the displacement by the SHM equation
+        const displacement = amplitude * Math.cos(omega * t);
+
+        //calc the current vertical position of the mass
+        const y = equilibriumy + displacement * scale;
+
+        drawSpring(centerx, ceilingy, y); // draw the mass
+
+        t += 0.02; // this moves the frame by inc the time
+
+        animation = requestAnimationFrame(animate); // this will make the animation continue
+    }
+}
+
+// the function that will draw the ceiling
+// i explained this code to much so if you faced a problem to understand go to any another js file in this project
+function drawCeiling(){
+    ctx.beginPath();
+    ctx.moveTo(0, ceilingy);
+    ctx.lineTo(canvas.width, ceilingy);
+    
+    //its style
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "#888";
+
+    //to render
+    ctx.stroke();
+}
+
+// the function that will draw the spring
+function drawSpring (x, tp, bttm) {
+    //some variables that i will need
+    const coils = 20; // number of the spring coils
+    const width = 20; // width of each coil
+    const step = (bttm - tp) / coils; // the dis between every two coils
+
+    // now lets draw the spring
+    ctx.beginPath();
+    ctx.moveTo(x, top);
+    for (let i = 1; i < coils; i++) { // this draw the zigzag spring coils
+        const xx = i % 2 === 0 ? x - width : x + width;
+        ctx.lineTo(xx, tp + i * step);
+    }
+
 }
