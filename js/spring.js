@@ -7,7 +7,7 @@ const massInput = document.getElementById("mass");
 const springInput = document.getElementById('spring');
 const amplitudeInput = document.getElementById('amplitude');
 const startBtn = document.getElementById("start");
-const result = document.getElementById("amplitude");
+const result = document.getElementById("period");
 // constants
 const ceilingy = 40;
 const centerx = canvas.width /2;
@@ -33,16 +33,16 @@ function startSimulation (){
     }
 
     //converting the inputs to numbers to work on it
-    const mass = Number(mass.Input.value);
+    const mass = Number(massInput.value);
     const k = Number(springInput.value);
     const amplitude = Number(amplitudeInput.value);
 
     //making sure that the mass, k, and amplitude is geater that 0
     if (mass <= 0) {
-        result.textCont = "Mass must be greater than zero";
+        result.textContent = "Mass must be greater than zero";
         return;
     }
-    if(mass<=0) {
+    if(k<=0) {
         result.textContent = "Spring constant must be greater than 0";
         return;
     }
@@ -69,7 +69,6 @@ function startSimulation (){
 
 
 
-    // the animate function that will be called 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // clear the previous frame before drawing
         drawGrid(); //calling the function that will draw the grid
@@ -82,7 +81,8 @@ function startSimulation (){
         //calc the current vertical position of the mass
         const y = equilibriumy + displacement * scale;
 
-        drawSpring(centerx, ceilingy, y); // draw the mass
+        drawSpring(centerx, ceilingy, y); // draw the spring
+        drawMass (centerx, y); // draw mass
 
         t += 0.02; // this moves the frame by inc the time
 
@@ -90,8 +90,6 @@ function startSimulation (){
     }
 }
 
-// the function that will draw the ceiling
-// i explained this code to much so if you faced a problem to understand go to any another js file in this project
 function drawCeiling(){
     ctx.beginPath();
     ctx.moveTo(0, ceilingy);
@@ -105,7 +103,6 @@ function drawCeiling(){
     ctx.stroke();
 }
 
-// the function that will draw the spring
 function drawSpring (x, tp, bttm) {
     //some variables that i will need
     const coils = 20; // number of the spring coils
@@ -114,10 +111,56 @@ function drawSpring (x, tp, bttm) {
 
     // now lets draw the spring
     ctx.beginPath();
-    ctx.moveTo(x, top);
+    ctx.moveTo(x, tp);
     for (let i = 1; i < coils; i++) { // this draw the zigzag spring coils
         const xx = i % 2 === 0 ? x - width : x + width;
         ctx.lineTo(xx, tp + i * step);
     }
 
+    // i must connect the last coil with the mass
+    ctx.lineTo(x, bttm);
+
+    // the spring style;
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 3;
+
+    ctx.stroke(); // render the spring
+}
+
+
+
+function drawMass(x,y) {
+    ctx.beginPath();
+    ctx.arc(x, y + 20, 18, 0, Math.PI * 2); // make the mass in the circle shape
+
+    // its style
+    ctx.fillStyle = "#3abff8";
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "#3abff8";
+
+    ctx.fill();
+    ctx.shadowBlur = 0;
+}
+
+
+function drawGrid() {
+    // grid style
+    ctx.strokeStyle = "rgba(255,255,255,0.08)";
+    ctx.lineWidth = 1;
+
+    //draw the vertical grid lines
+    for (let x = 0; x<= canvas.width; x += 40) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+    }
+
+    // draw the horizontal grid lines
+    for (let y = 0; y <= canvas.height; y+= 40) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+    }
 }
