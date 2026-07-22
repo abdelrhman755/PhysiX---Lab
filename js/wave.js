@@ -46,5 +46,53 @@ function startSimulation () {
         return;
     }
 
-    
+    const speed = frequency * wave; // wave speed
+    result.textContent = speed.toFixed(2); // display the result
+    const amplitudeScale = amplitue * 40; //convert amplitude to pixels
+    const k = (2 * Math.PI) / (wave * 40); // wave number
+    const omega = 2 * Math.PI * frequency; // angular frequency
+    let t = 0;
+    animate();
+
+    function animate () {
+        //clear the previous frame
+        ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
+
+        drawGrid(); // draw the background
+        drawCenLin(); // draw the center line
+        drawWave(amplitudeScale, k, omega, t); // draw the wave
+        t += 0.02; // increase time
+        animation = requestAnimationFrame(animate);
+    }
+}
+
+// draw the wave function
+function drawWave(amplitude, k, omega, t){
+    ctx.beginPath();
+    for (let x = 0; x<= canvas.clientWidth; x++) {
+        const y = centery + amplitude * Math.sin(k * x - omega * time);
+        if ( x === 0) {
+            ctx.moveTo(x,y);
+        } else {
+            ctx.lineTo(x,y);
+        }
+    }
+
+    ctx.strokeStyle = "#3abff8";
+    ctx.lineWidth = 3;
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "3abff8";
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+}
+
+
+//function to draw the center line
+function drawCenLin() {
+    ctx.beginPath();
+    ctx.moveTo(0, centery);
+    ctx.lineTo(canvas.width, centery);
+    ctx.strokeStyle = "#888";
+    ctx.lineWidth = 2;
+    ctx.stroke();
 }
