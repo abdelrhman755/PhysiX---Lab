@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Simulation | PhysiX Lab</title>
+    <link rel="stylesheet" href="../css/simulation.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="space">
+        <div class="glowing orb-1"></div>
+        <div class="glowing orb-2"></div>
+    </div>
+    <div class="stars-l"></div>
+    <nav>
+        <div class="logo" style="background-image:url('../images/physics.png');"></div>
+        <h2>PhysiX-Lab</h2>
+        <div class="links">
+            <a href="../index.html">Home</a>
+        </div>
+    </nav>
+    <section class = "simulation">
+        <div class="sim-card">
+            <h1>Wave Simulation</h1>
+            <div class="inputs">
+                <input id="frequency" type="number" placeholder="Frequency (Hz)">
+                <input id="wavelength" type="number" placeholder="Wave Length (m)">
+                <input id="amplitude" type="number" placeholder="Amplitude (m)">
+                <button id="start">Start Simulation</button>
+            </div>
+            <canvas id="canvas" width="900" height="450"></canvas>
+            <div class="result">
+                Wave Speed = <span id="result">--</span> m/s
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p class="future-note">In the future, there will be more calculators and simulations!</p>
+        <p class="copyright">&copy; 2026 Abdlerahman | PhysiX Lab. All rights reserved.</p>
+    </footer>
+    <script src="../js/wave.js"></script>
+</body>
+</html>
