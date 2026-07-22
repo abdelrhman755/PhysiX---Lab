@@ -231,7 +231,7 @@ main{
     transform: scale(0.95); 
 }
 
-.about-sec {
+.developer-sec {
     background:rgba(0,0,0,0.4);
     padding:80px 20px;
     text-align:center;
@@ -278,7 +278,7 @@ footer {
 }
 
 .profile-container p{
-    color:rgba(255, 251, 37, 0.596);
+    color:rgba(44, 255, 156, 0.701);
     font-family: arial;
     font-weight:bold;
 }
@@ -414,4 +414,32 @@ footer {
 .f4{
     top:12%;
     left:55%;
+}
+
+.about-sec {
+    padding: 100px 10%;
+}
+
+.about-con {
+    max-width:900px;
+    margin:auto;
+    background:rgba(255,255,255,0.05);
+    text-align:center;
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:20px;
+    padding:45px;
+}
+
+.about-con h2 {
+    font-size: 35px;
+    margin-bottom:25px;
+    color:#3abff8;
+}
+
+.about-con p {
+    margin:18px 0;
+    color:#d7d7d7;
+    line-height:2;
+    font-size:17px;
 }
