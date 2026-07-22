@@ -434,7 +434,10 @@ footer {
 .about-con h2 {
     font-size: 35px;
     margin-bottom:25px;
-    color:#3abff8;
+    background:linear-gradient(90deg, #0f5de3, #4af759);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .about-con p {
@@ -442,4 +445,5 @@ footer {
     color:#d7d7d7;
     line-height:2;
     font-size:17px;
+    font-weight:bold;
 }
