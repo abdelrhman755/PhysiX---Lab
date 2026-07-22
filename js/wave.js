@@ -28,7 +28,7 @@ function startSimulation () {
     // convert input values to numbers
     const amplitude = Number(amplitudeInput.value);
     const frequency = Number(frequencyInput.value);
-    const wave = number(wavelengthInput.value);
+    const wave = Number(wavelengthInput.value);
 
     // some detection to make sure that the all our inputs are greater than zero
     if (amplitude <= 0) {
@@ -48,7 +48,7 @@ function startSimulation () {
 
     const speed = frequency * wave; // wave speed
     result.textContent = speed.toFixed(2); // display the result
-    const amplitudeScale = amplitue * 40; //convert amplitude to pixels
+    const amplitudeScale = amplitude * 40; //convert amplitude to pixels
     const k = (2 * Math.PI) / (wave * 40); // wave number
     const omega = 2 * Math.PI * frequency; // angular frequency
     let t = 0;
@@ -56,7 +56,7 @@ function startSimulation () {
 
     function animate () {
         //clear the previous frame
-        ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         drawGrid(); // draw the background
         drawCenLin(); // draw the center line
@@ -69,8 +69,8 @@ function startSimulation () {
 // draw the wave function
 function drawWave(amplitude, k, omega, t){
     ctx.beginPath();
-    for (let x = 0; x<= canvas.clientWidth; x++) {
-        const y = centery + amplitude * Math.sin(k * x - omega * time);
+    for (let x = 0; x<= canvas.width; x++) {
+        const y = centery + amplitude * Math.sin(k * x - omega * t);
         if ( x === 0) {
             ctx.moveTo(x,y);
         } else {
@@ -81,7 +81,7 @@ function drawWave(amplitude, k, omega, t){
     ctx.strokeStyle = "#3abff8";
     ctx.lineWidth = 3;
     ctx.shadowBlur = 20;
-    ctx.shadowColor = "3abff8";
+    ctx.shadowColor = "#3abff8";
     ctx.stroke();
     ctx.shadowBlur = 0;
 }
@@ -96,3 +96,28 @@ function drawCenLin() {
     ctx.lineWidth = 2;
     ctx.stroke();
 }
+
+// function to draw the grid 
+function drawGrid() {
+    ctx.strokeStyle = "rgba(255,255,255,0.08)";
+    ctx.lineWidth = 1;
+
+    //vertical lines
+    for (let x = 0; x<= canvas.width; x += 40){
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x,canvas.height);
+        ctx.stroke();
+    }
+
+    //horizontal lines
+    for (let y = 0; y <= canvas.height; y += 40 ) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+    }
+}
+
+// الحمد لله الذي تتم بنعمته الصالحات
+
